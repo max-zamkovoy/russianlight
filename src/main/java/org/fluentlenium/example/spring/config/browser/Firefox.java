@@ -1,15 +1,18 @@
 package org.fluentlenium.example.spring.config.browser;
 
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 class Firefox implements IBrowser {
 
     @Override
     public Capabilities getCapabilities() {
-        FirefoxOptions options = new FirefoxOptions();
-        options.setCapability("os", "Windows");
-        return options;
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("firefox");
+        capabilities.setVersion("68.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        return capabilities;
     }
 
     @Override

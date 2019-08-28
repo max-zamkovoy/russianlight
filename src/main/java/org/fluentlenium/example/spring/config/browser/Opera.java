@@ -7,13 +7,12 @@ class Opera implements IBrowser {
 
     @Override
     public Capabilities getCapabilities() {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browser", "Opera");
-        caps.setCapability("browser_version", "12.15");
-        caps.setCapability("os", "OS X");
-        caps.setCapability("os_version", "Mojave");
-        caps.acceptInsecureCerts();
-        return caps;
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("opera");
+        capabilities.setVersion("62.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        return capabilities;
     }
 
     @Override
